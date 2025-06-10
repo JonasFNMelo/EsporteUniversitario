@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24F74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CampeonatosList" representedClassName="CampeonatosList" syncable="YES" codeGenerationType="class">
+        <attribute name="abreviacao" optional="YES" attributeType="String"/>
+        <attribute name="imagem" optional="YES" attributeType="String"/>
+        <attribute name="link" optional="YES" attributeType="String"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="FavoritasList" representedClassName="FavoritasList" syncable="YES" codeGenerationType="class">
+        <attribute name="esportes" optional="YES" attributeType="String"/>
+        <attribute name="imagem" optional="YES" attributeType="String"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="universidade" optional="YES" attributeType="String"/>
+    </entity>
+</model>
