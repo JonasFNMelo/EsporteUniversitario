@@ -29,8 +29,6 @@ struct Tjson{
         let (data, _) = try await URLSession.shared.data(for: request)
         
         let dados = try JSONDecoder().decode(TAtArray.self, from: data)
-        print("ta tudo bem campeonatos")
-        print(data)
         
         return .success(dados)
         

@@ -17,7 +17,7 @@ struct AthleticsComponentSearch: View {
         
         NavigationLink(destination: AtleticasPage(atletica: atletica)){
             RoundedRectangle(cornerRadius: 20)
-                .frame(width: 172, height: 183)
+                .frame(width: 165, height: 183)
                 .foregroundStyle(.lightGray)
                 .overlay{
                     VStack{
@@ -51,28 +51,29 @@ struct AthleticsComponentSearch: View {
                             if isFavorita{
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
-                                        .frame(width: 97, height: 20)
+                                        .frame(width: 97, height: 21)
                                         .foregroundStyle(.white)
                                     Text("Favoritado")
                                         .fontWeight(.semibold)
                                         .foregroundColor(.accent)
-                                        .font(.system(size: 11))
+                                        .font(.system(size: 13))
                                 }
                             }else{
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
-                                        .frame(width: 97, height: 20)
+                                        .frame(width: 97, height: 21)
                                         .foregroundStyle(.accent)
                                     Text("Favoritar")
                                         .fontWeight(.semibold)
                                         .foregroundColor(.white)
-                                        .font(.system(size: 11))
+                                        .font(.system(size: 13))
                                 }
                             }
                         }
                     }
                     
                 }
+                .padding(.bottom, 5)
                 .onAppear{
                     isFavorita = verifyAtletica()
                 }
@@ -106,7 +107,7 @@ struct AthleticsComponentSearch: View {
 
 #Preview {
     let testAtletica: Atleticas = Atleticas(
-        nome: "TeckMack", imagem: "tecmack", universidade: "Mackenzie", cursos: [], descricao: "fregjerjf", eventos: [], esportes: []
+        nome: "TeckMack", imagem: "tecmack",contato: "", universidade: "Mackenzie", cursos: [], descricao: "fregjerjf", eventos: [], esportes: []
     )
     let atleticaM = ContentViewModel()
     AthleticsComponentSearch(atleticasModel: atleticaM, atletica:testAtletica )
