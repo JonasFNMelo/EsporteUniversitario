@@ -18,7 +18,7 @@ struct CampeonatoRectangleView: View {
             Image(campeonato.imagem)
                 .resizable()
                 .clipShape(Circle())
-                .frame(width: 88, height: 88)
+                .frame(width: 80, height: 80)
                 .padding(.leading, 16)
             
             VStack(alignment: .leading){

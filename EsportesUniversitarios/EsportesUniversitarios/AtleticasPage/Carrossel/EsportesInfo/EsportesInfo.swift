@@ -13,16 +13,15 @@ struct EsportesInfo: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            if esporte.categoria != ""{
-                Text("Categoria")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                
-                Text(esporte.categoria)
-                    .font(.system(size: tamanhoTexto, weight: .regular))
-                    .padding(.bottom, 10)
-            }
-            
+                if esporte.categoria != ""{
+                    Text("Categoria")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    
+                    Text(esporte.categoria)
+                        .font(.system(size: tamanhoTexto, weight: .regular))
+                        .padding(.bottom, 10)
+                }
             
             if esporte.local != ""{
                 Text("Local dos treinos")
@@ -38,7 +37,6 @@ struct EsportesInfo: View {
             
             if esporte.horario[0] != "" {
                 Text("Horário dos treinos")
-                //                .font(.system(size: 16, weight: .semibold))
                     .font(.title3)
                     .fontWeight(.semibold)
                 
@@ -103,7 +101,7 @@ struct EsportesInfo: View {
 }
 
 #Preview {
-    let esporteT: Esportes = Esportes(esporte: "", local: "", categoria: "", localProcesso: [], horario: [], premiacoes: [], dataProcessoSeletivo: [], contato: [])
+    let esporteT: Esportes = Esportes(esporte: "", local: "", categoria: "", localProcesso: [], horario: [], premiacoes: [], dataProcessoSeletivo: [], sfsymbol: "")
     
     EsportesInfo(esporte: esporteT)
 }

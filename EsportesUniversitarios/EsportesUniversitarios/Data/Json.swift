@@ -18,6 +18,7 @@ struct AtArray: Codable{
 struct Atleticas: Codable {
     var nome: String
     var imagem: String
+    var contato: String
     var universidade: String
     var cursos: [String]
     var descricao: String
@@ -33,7 +34,7 @@ struct Esportes: Codable, Hashable {
     var horario: [String]
     var premiacoes: [String]
     var dataProcessoSeletivo: [String]
-    var contato: [String]
+    var sfsymbol: String
     
 }
 
@@ -46,7 +47,7 @@ enum RequestError: Error {
 struct Json{
     func fetchData() async throws -> Result<AtArray, RequestError> {
         
-        guard let url = URL(string: "https://gist.githubusercontent.com/JonasFNMelo/84a8a27beff8117241751811ee25db4e/raw/1fcc1f6586eabc3f1a241c9a191d5a650d9d62bc/atleticas.json") else {
+        guard let url = URL(string: "https://gist.githubusercontent.com/JonasFNMelo/5a17ddf2552288c7a0600447d3a96516/raw/671e891bf1614886d16061f59b7813ca983d4208/test2.json") else {
             return .failure(.invalidURL)
         }
         
@@ -57,7 +58,6 @@ struct Json{
         let (data, _) = try await URLSession.shared.data(for: request)
         
         let dados = try JSONDecoder().decode(AtArray.self, from: data)
-        print("ta tudo bem")
         
         return .success(dados)
         
