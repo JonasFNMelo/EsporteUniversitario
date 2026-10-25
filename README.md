@@ -1,59 +1,145 @@
+<div align="center">
+
+<img src="docs/icon.png" width="130" alt="EsporteUniversitario app icon" style="border-radius: 28px;"/>
+
 # EsporteUniversitario
 
-App iOS para quem quer conhecer as **atléticas universitárias** e os **campeonatos** do esporte universitário: busque atléticas, veja os esportes, horários e processos seletivos de cada uma, salve suas favoritas e acesse os campeonatos em um toque.
+### Every university athletic association, one tap away. 🏆
 
-> 📸 _Screenshots em breve._
+EsporteUniversitario brings Brazil's university sports scene into a single native iOS app.
+Search athletic associations (*atléticas*), see which sports each one plays, when they
+train and when tryouts happen, save your favorites, and jump straight to the
+championships they compete in.
 
-## Funcionalidades
+<br/>
 
-- **Busca de atléticas** com `.searchable` e filtro por nome
-- **Página da atlética**: universidade, cursos, descrição, eventos e um carrossel com os esportes (local, categoria, horários, premiações e datas de processo seletivo)
-- **Contato direto** com a atlética pelo link cadastrado
-- **Favoritas** salvas localmente com **Core Data**
-- **Campeonatos** com acesso ao site oficial de cada um
+[![Platform](https://img.shields.io/badge/iOS-18.5+-000000?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/ios/)
+[![Swift](https://img.shields.io/badge/Swift-5-FA7343?style=for-the-badge&logo=swift&logoColor=white)](https://swift.org)
+[![SwiftUI](https://img.shields.io/badge/SwiftUI-0052CC?style=for-the-badge&logo=swift&logoColor=white)](https://developer.apple.com/xcode/swiftui/)
+[![Core Data](https://img.shields.io/badge/Core_Data-3693F3?style=for-the-badge&logo=apple&logoColor=white)](https://developer.apple.com/documentation/coredata)
 
-## O que este projeto demonstra
+</div>
 
-- **Consumo de dados remotos** com `URLSession` e `async/await`, decodificando JSON com `Codable`
-- **Persistência local** com Core Data (`NSPersistentContainer`, fetch, criação e remoção de entidades)
-- **SwiftUI** com `TabView`, `NavigationLink`, busca nativa e componentização das telas
-- Separação entre camada de dados (`Data/`), ViewModel (`ContentViewModel`) e Views
+---
 
-## Tecnologias
+## 📑 Table of Contents
 
-- Swift 5 · SwiftUI
-- Core Data
-- URLSession (async/await) + Codable
+- [About](#-about)
+- [Features](#-features)
+- [How It Works](#-how-it-works)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Authors](#-authors)
 
-## Estrutura do projeto
+---
+
+## 📖 About
+
+University athletic associations (*atléticas*) are a huge part of student life in Brazil,
+but their information is scattered across Instagram profiles, group chats and flyers.
+EsporteUniversitario gathers it in one place: who the associations are, which university
+and courses they represent, which sports they compete in, where and when they train, and
+when tryouts (*processos seletivos*) happen.
+
+The catalog of associations and championships is loaded from remote JSON, so the content
+can be updated without shipping a new version of the app.
+
+---
+
+## 🚀 Features
+
+- **🔎 Search** — find any athletic association by name with native SwiftUI search.
+- **🏟️ Association page** — university, courses, description, events and a direct **Contact** button.
+- **⚽ Sports carousel** — every sport the association plays, each with its own SF Symbol; tap one to see location, category, training schedule, awards and tryout dates.
+- **⭐ Favorites** — save associations locally and find them again in the Favorites tab.
+- **🏆 Championships** — the main university championships, each opening its official website.
+
+---
+
+## ⚙️ How It Works
+
+1. On launch, the app fetches the associations and championships catalogs over the network.
+2. The **Pesquisar** (search) tab lists every association; tap one to open its page.
+3. On the association page, browse the sports carousel and tap **Favoritar** to save it.
+4. Favorites are persisted on the device and shown in the **Favoritos** tab.
+5. The **Campeonatos** tab lists championships and opens each one's website.
+
+Under the hood, `Json` and `Tjson` fetch the catalogs with `URLSession` and `async/await`
+and decode them into `Codable` models. Favorites go through `CoreDataController`, a
+singleton wrapping an `NSPersistentContainer`, exposed to the views by `ContentViewModel`.
+
+---
+
+## 🛠️ Tech Stack
+
+| Area | Tech |
+|------|------|
+| UI | SwiftUI |
+| Networking | URLSession (async/await) · Codable |
+| Persistence | Core Data |
+| Architecture | MVVM |
+
+---
+
+## 📂 Project Structure
 
 ```
 EsportesUniversitarios/
-├── ContentView/      # TabView principal e ContentViewModel
-├── SearchScreen/     # Busca de atléticas
-├── AtleticasPage/    # Detalhe da atlética e carrossel de esportes
-├── FavoriteView/     # Atléticas favoritas (Core Data)
-├── CampeonatoView/   # Lista de campeonatos
-└── Data/             # Modelos Codable, requisições e CoreDataController
+├── EsporteUniversitarioApp.swift   # App entry
+├── ContentView/                    # TabView + ContentViewModel
+├── SearchScreen/                   # Association search
+├── AtleticasPage/                  # Association page, sports carousel and details
+├── FavoriteView/                   # Saved associations
+├── CampeonatoView/                 # Championships list
+├── Data/                           # Codable models, network requests, CoreDataController
+└── Assets.xcassets/                # Association logos, colors, icons
 ```
 
-## Requisitos
+---
 
-- Xcode 16 ou superior
-- iOS 18.5 ou superior
-- Conexão com a internet (os dados das atléticas e dos campeonatos são carregados de um JSON remoto)
+## 🎯 Getting Started
 
-## Como rodar
+### Requirements
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/JonasFNMelo/EsporteUniversitario.git
-   ```
-2. Abra `EsportesUniversitarios/EsportesUniversitarios.xcodeproj` no Xcode.
-3. Selecione um simulador de iPhone e execute (`⌘R`).
+- Xcode 16+
+- iOS 18.5+
+- Internet connection (the catalogs are loaded from remote JSON)
 
-## Autoria
+### Run
 
-Projeto desenvolvido em equipe na Universidade Presbiteriana Mackenzie.
+```bash
+git clone https://github.com/JonasFNMelo/EsporteUniversitario.git
+cd EsporteUniversitario
+open EsportesUniversitarios/EsportesUniversitarios.xcodeproj
+```
 
-- [**Jonas Melo**](https://github.com/JonasFNMelo): camada de persistência com Core Data (`CoreDataController`) e `ContentViewModel`
+Then pick an iPhone simulator and run (`⌘R`).
+
+---
+
+## 👥 Authors
+
+Built at **Universidade Presbiteriana Mackenzie**.
+
+<table width="100%">
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://github.com/camilatoniato"><img src="https://github.com/camilatoniato.png" width="80" alt="Camila Toniato"/></a>
+      <br/><sub><b>Camila Toniato</b></sub><br/>
+      <a href="https://github.com/camilatoniato"><img src="https://skillicons.dev/icons?i=github" alt="GitHub"/></a>
+      <a href="https://www.linkedin.com/in/camilatoniato/"><img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn"/></a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/JoaoPioltini"><img src="https://github.com/JoaoPioltini.png" width="80" alt="João Pioltini"/></a>
+      <br/><sub><b>João Pioltini</b></sub><br/>
+      <a href="https://github.com/JoaoPioltini"><img src="https://skillicons.dev/icons?i=github" alt="GitHub"/></a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/JonasFNMelo"><img src="https://github.com/JonasFNMelo.png" width="80" alt="Jonas Melo"/></a>
+      <br/><sub><b>Jonas Melo</b></sub><br/>
+      <a href="https://github.com/JonasFNMelo"><img src="https://skillicons.dev/icons?i=github" alt="GitHub"/></a>
+      <a href="https://www.linkedin.com/in/jonas-melo-/"><img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn"/></a>
+    </td>
+  </tr>
+</table>
