@@ -6,13 +6,15 @@
 
 ### Every university athletic association, one tap away. 🏆
 
-EsporteUniversitario brings Brazil's university sports scene into a single native iOS app.
+EsporteUniversitario — published on the App Store as **UniEsportes** — brings Brazil's
+university sports scene into a single native iOS app.
 Search athletic associations (*atléticas*), see which sports each one plays, when they
 train and when tryouts happen, save your favorites, and jump straight to the
 championships they compete in.
 
 <br/>
 
+[![Download on the App Store](https://img.shields.io/badge/Download_on_the-App_Store-0D96F6?style=for-the-badge&logo=apple&logoColor=white)](https://apps.apple.com/br/app/uniesportes/id6747092775)
 [![Platform](https://img.shields.io/badge/iOS-18.5+-000000?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/ios/)
 [![Swift](https://img.shields.io/badge/Swift-5-FA7343?style=for-the-badge&logo=swift&logoColor=white)](https://swift.org)
 [![SwiftUI](https://img.shields.io/badge/SwiftUI-0052CC?style=for-the-badge&logo=swift&logoColor=white)](https://developer.apple.com/xcode/swiftui/)
@@ -44,6 +46,8 @@ when tryouts (*processos seletivos*) happen.
 
 The catalog of associations and championships is loaded from remote JSON, so the content
 can be updated without shipping a new version of the app.
+
+UniEsportes is **live on the App Store** — [download it here](https://apps.apple.com/br/app/uniesportes/id6747092775).
 
 ---
 
